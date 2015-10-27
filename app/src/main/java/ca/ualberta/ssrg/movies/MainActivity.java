@@ -43,7 +43,9 @@ public class MainActivity extends Activity {
 		super.onStart();
 
 		movies = new Movies();
-		moviesViewAdapter = new ArrayAdapter<Movie>(this, R.layout.list_item,movies);
+        moviesController = new MoviesController(movies);
+
+        moviesViewAdapter = new ArrayAdapter<Movie>(this, R.layout.list_item,movies);
 		movieList.setAdapter(moviesViewAdapter);
 		movieManager = new ESMovieManager("");
 
@@ -135,7 +137,6 @@ public class MainActivity extends Activity {
 
 
 	class SearchThread extends Thread {
-		// TODO: Implement search thread
 		private String search;
 		public SearchThread(String search) {
 			this.search = search;
